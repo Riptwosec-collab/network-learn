@@ -1096,6 +1096,10 @@ devices = requests.get(
 <div class="section" id="linux">
   <div class="section-title">Linux for Network Engineers</div>
   <p class="section-desc">Linux เป็นพื้นฐานสำคัญ — Routers, Firewalls, Cloud VMs และ Automation Tools ส่วนใหญ่รันบน Linux</p>
+  <div class="highlight-box" style="margin-bottom:20px;">
+    <strong>สิ่งที่ควรทำได้จริง:</strong> อ่าน log ด้วย `journalctl`, ตรวจ service ด้วย `systemctl`, debug port ด้วย `ss`, capture packet ด้วย `tcpdump`, schedule job ด้วย `cron`, และเขียน bash script สำหรับ health check/backup config ได้
+    <br><br><button class="btn" onclick="gotoTab('ext-docs')" style="border-color:var(--accent5);color:var(--accent5);">เปิด Network Documentation Best Practices</button>
+  </div>
 
   <div class="vlan-diagram">
     <div class="osi-title">💻 Essential Linux Commands</div>
@@ -1269,6 +1273,10 @@ ssh -L 8080:internal-server:80 jump-server
 <div class="section" id="cloud">
   <div class="section-title">Cloud Networking</div>
   <p class="section-desc">Cloud คืออนาคต — เรียนรู้ VPC, VPN, Load Balancer และ Hybrid Network เพื่อไปสาย Cloud Engineer, SRE, DevNet</p>
+  <div class="highlight-box green" style="margin-bottom:20px;">
+    <strong>Cloud Network Checklist:</strong> แยก Public/Private Subnet, Route Table, NAT Gateway, Security Group/NACL, VPN/Direct Connect/ExpressRoute, Load Balancer, DNS, Logging และ Cost/Egress ให้ชัดตั้งแต่ design
+    <br><br><button class="btn" onclick="gotoTab('ext-docs')" style="border-color:var(--accent5);color:var(--accent5);">เปิด Network Documentation Best Practices</button>
+  </div>
 
   <div class="cloud-arch">
     <div class="osi-title">☁️ Cloud Providers</div>
@@ -1456,6 +1464,10 @@ ssh -L 8080:internal-server:80 jump-server
 <div class="section" id="security">
   <div class="section-title">Network Security</div>
   <p class="section-desc">Security ไม่ใช่ Option — เป็น Requirement ทุก Network Engineer ต้องเข้าใจ Defense in Depth และ Zero Trust</p>
+  <div class="highlight-box orange" style="margin-bottom:20px;">
+    <strong>Security Ops Checklist:</strong> firewall rule ต้องมี owner/purpose/expiry, VPN ต้องใช้ MFA, management plane ต้องจำกัด source IP, log ต้องส่งเข้า SIEM, และทุก change ต้องมี rollback + evidence
+    <br><br><button class="btn" onclick="gotoTab('ext-docs')" style="border-color:var(--accent5);color:var(--accent5);">เปิด Network Documentation Best Practices</button>
+  </div>
 
   <div class="security-diagram">
     <div class="osi-title">🛡️ Defense in Depth — ชั้นการป้องกัน</div>
@@ -1593,6 +1605,10 @@ ssh -L 8080:internal-server:80 jump-server
 <div class="section" id="sdwan">
   <div class="section-title">SD-WAN & Data Center</div>
   <p class="section-desc">เทคโนโลยีระดับสูง — SD-WAN ทำให้ WAN จัดการได้ง่าย Data Center ใช้ Spine-Leaf Architecture ทันสมัย</p>
+  <div class="highlight-box purple" style="margin-bottom:20px;">
+    <strong>Design Checklist:</strong> แยก Underlay/Overlay, ระบุ SLA ของแต่ละ application, HA path, routing policy, bandwidth sizing, failover test, fabric naming standard และ diagram L1/L2/L3 ก่อน deploy
+    <br><br><button class="btn" onclick="gotoTab('ext-docs')" style="border-color:var(--accent5);color:var(--accent5);">เปิด Network Documentation Best Practices</button>
+  </div>
 
   <div class="vlan-diagram">
     <div class="osi-title">🌐 SD-WAN — Software Defined WAN</div>
@@ -1721,6 +1737,10 @@ ssh -L 8080:internal-server:80 jump-server
 <div class="section" id="monitoring">
   <div class="section-title">Monitoring & Observability</div>
   <p class="section-desc">ถ้าไม่ Monitor ก็ไม่รู้ว่า Network มีปัญหา — Observability คือการรู้ State ของ System ตลอดเวลา เนื้อหาครบที่ Tab <strong>📡 gNMI</strong></p>
+  <div class="highlight-box" style="margin-bottom:20px;">
+    <strong>Monitoring Checklist:</strong> เก็บ availability, latency, bandwidth, packet loss, interface error, CPU/memory/temp, routing neighbor, VPN tunnel และ syslog พร้อม alert threshold และ incident runbook
+    <br><br><button class="btn" onclick="gotoTab('ext-docs')" style="border-color:var(--accent5);color:var(--accent5);">เปิด Network Documentation Best Practices</button>
+  </div>
   <div class="highlight-box green" style="margin-bottom:20px;">
     📡 <strong>Monitoring Protocols</strong> (SNMP, NetFlow, Syslog) และ <strong>Tools Stack</strong> (Zabbix, Grafana, Prometheus, PRTG) ดูได้ที่ Tab <strong>"📡 gNMI"</strong> — เนื้อหารวมอยู่ที่เดียวเพื่อความกระชับ
   </div>
@@ -1969,84 +1989,70 @@ SW(config-if)<span class="op">#</span> authentication event no-response action a
 <!-- BGP ADVANCED -->
 <!-- ════════════════════════ -->
 <div id="ext-bgpadv" class="section" style="max-width:1400px;margin:0 auto;padding:0 20px 40px;">
-  <div class="vlan-diagram">
-    <div class="osi-title">🌍 BGP Advanced — Path Selection & Policy</div>
-    <div class="highlight-box purple">BGP เลือก Best Path ผ่าน 13 ขั้นตอนตามลำดับ — รู้จัก Attributes สำคัญเพื่อควบคุม Traffic Engineering</div>
+  <div class="section-title">🌍 BGP Advanced — Path Selection & Policy</div>
+  <p class="section-desc">จัดระเบียบการเลือกเส้นทาง BGP, policy control และตัวอย่าง config ที่ใช้จริงในงาน Multi-homing, ISP Peering, Data Center EVPN และ SD-WAN</p>
 
-    <div style="margin:20px 0;">
-      <div style="font-family:'Space Mono',monospace;font-size:14px;color:var(--accent4);margin-bottom:16px;">BGP Best Path Selection (ตามลำดับ)</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;">
-        {[
-          ['1','Weight (Cisco)','สูงกว่า = ดีกว่า, Local เท่านั้น'],
-          ['2','Local Preference','สูงกว่า = ดีกว่า, ใช้ใน iBGP'],
-          ['3','Locally Originated','Prefer Route ที่ Originate เอง'],
-          ['4','AS-PATH Length','สั้นกว่า = ดีกว่า (Hop น้อย)'],
-          ['5','Origin','IGP > EGP > Incomplete'],
-          ['6','MED','ต่ำกว่า = ดีกว่า เปรียบ AS เดียวกัน'],
-          ['7','eBGP vs iBGP','Prefer eBGP over iBGP'],
-          ['8','IGP Metric','ต่ำกว่า = ดีกว่า ไปยัง Next-hop'],
-        ].map(([n,title,desc])=>`
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:12px;display:flex;gap:12px;align-items:flex-start;">
-            <div style="background:var(--accent4);color:var(--bg);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;flex-shrink:0;">${n}</div>
-            <div>
-              <div style="font-family:'Space Mono',monospace;font-size:12px;color:var(--text);margin-bottom:3px;">${title}</div>
-              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);">${desc}</div>
-            </div>
-          </div>`).join('')}
+  <div class="vlan-diagram">
+    <div class="osi-title">🧭 BGP Best Path Selection</div>
+    <div class="highlight-box purple">BGP ไม่ได้เลือกเส้นทางจาก bandwidth โดยตรง แต่เลือกตาม Attribute เป็นลำดับชั้น ถ้าเงื่อนไขแรกเสมอกันจึงค่อยดูเงื่อนไขถัดไป</div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:20px 0;">
+      <div class="info-box"><div class="info-box-title" style="color:var(--accent4);">1. Weight</div><p style="font-size:12px;color:var(--text-dim);line-height:1.6;">Cisco local-only, ค่าสูงกว่า preferred. ใช้บังคับ outbound path บน router เครื่องเดียว</p></div>
+      <div class="info-box"><div class="info-box-title" style="color:var(--accent4);">2. Local Preference</div><p style="font-size:12px;color:var(--text-dim);line-height:1.6;">กระจายใน iBGP ภายใน AS, ค่าสูงกว่า preferred. ใช้เลือกทางออก Internet หลัก</p></div>
+      <div class="info-box"><div class="info-box-title" style="color:var(--accent4);">3. Locally Originated</div><p style="font-size:12px;color:var(--text-dim);line-height:1.6;">Route ที่ originate จาก router เองจะชนะ route ที่เรียนจาก peer</p></div>
+      <div class="info-box"><div class="info-box-title" style="color:var(--accent4);">4. AS-PATH Length</div><p style="font-size:12px;color:var(--text-dim);line-height:1.6;">AS-PATH สั้นกว่า preferred. ใช้ prepend เพื่อทำ inbound traffic engineering</p></div>
+      <div class="info-box"><div class="info-box-title" style="color:var(--accent4);">5. Origin Type</div><p style="font-size:12px;color:var(--text-dim);line-height:1.6;">IGP ชนะ EGP และ Incomplete. พบได้บ่อยกับ route ที่ redistribute เข้ามา</p></div>
+      <div class="info-box"><div class="info-box-title" style="color:var(--accent4);">6. MED</div><p style="font-size:12px;color:var(--text-dim);line-height:1.6;">ค่าน้อยกว่า preferred. ใช้บอก AS เพื่อนบ้านว่าควรเข้าทางไหนเมื่อมีหลาย link</p></div>
+      <div class="info-box"><div class="info-box-title" style="color:var(--accent4);">7. eBGP over iBGP</div><p style="font-size:12px;color:var(--text-dim);line-height:1.6;">เส้นทางจาก eBGP จะถูกเลือกก่อน iBGP เมื่อ attributes ก่อนหน้าเท่ากัน</p></div>
+      <div class="info-box"><div class="info-box-title" style="color:var(--accent4);">8. IGP Metric to Next Hop</div><p style="font-size:12px;color:var(--text-dim);line-height:1.6;">next-hop ที่ใกล้กว่าใน IGP จะ preferred. ต้องดู OSPF/IS-IS metric ประกอบ</p></div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="vlan-diagram">
+      <div class="osi-title">🎛️ Policy Toolkit</div>
+      <div class="info-grid">
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent);">Prefix-list</div><ul><li>Match prefix + prefix length</li><li>ใช้กรอง route ที่รับ/ส่ง</li><li>ควร deny default route ที่ไม่ต้องการ</li></ul></div>
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent2);">Route-map</div><ul><li>Match เงื่อนไขแล้ว set attribute</li><li>ใช้ปรับ local-pref, MED, community</li><li>เรียง sequence ให้ชัดเจน</li></ul></div>
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent5);">Community</div><ul><li>Tag route เพื่อทำ policy ภายหลัง</li><li>NO_EXPORT, NO_ADVERTISE</li><li>ใช้กับ upstream ISP ได้บ่อย</li></ul></div>
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent3);">Route Reflector</div><ul><li>ลด iBGP full-mesh</li><li>ออกแบบ cluster-id ให้ชัด</li><li>ตรวจ route-reflector-client ทุกครั้ง</li></ul></div>
       </div>
     </div>
 
-    <div class="two-col">
-      <div>
-        <div class="code-block" data-lang="cisco ios">
-<span class="cm">! BGP Route Map — ปรับ Local Preference</span>
-Router(config)<span class="op">#</span> route-map SET_LOCPREF permit <span class="num">10</span>
-Router(config-route-map)<span class="op">#</span> match ip address prefix-list PREFERRED
-Router(config-route-map)<span class="op">#</span> set local-preference <span class="num">200</span>  <span class="cm">! Default=100</span>
-
-<span class="cm">! Apply ขาเข้าจาก iBGP Peer</span>
-Router(config-router)<span class="op">#</span> neighbor <span class="num">10.0.0.2</span> route-map SET_LOCPREF in
-
-<span class="cm">! BGP Community — Tag Routes</span>
-Router(config)<span class="op">#</span> route-map TAG_COMMUNITY permit <span class="num">10</span>
-Router(config-route-map)<span class="op">#</span> set community <span class="num">65001:100</span>
-
-<span class="cm">! Prefix List — กรอง Routes</span>
-Router(config)<span class="op">#</span> ip prefix-list ALLOWED seq <span class="num">10</span> permit <span class="num">10.0.0.0/8</span> le <span class="num">24</span>
-Router(config)<span class="op">#</span> ip prefix-list ALLOWED seq <span class="num">20</span> deny <span class="num">0.0.0.0/0</span> le <span class="num">32</span>
-
-<span class="cm">! BGP Graceful Restart</span>
-Router(config-router)<span class="op">#</span> bgp graceful-restart
-        </div>
+    <div class="vlan-diagram">
+      <div class="osi-title">📌 Use Cases ที่เจอบ่อย</div>
+      <div class="info-grid">
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent2);">Outbound Primary/Backup</div><ul><li>ใช้ Local Preference สูงกว่าบน ISP หลัก</li><li>ลดค่าเมื่อ link degrade</li><li>ใช้ IP SLA/route-policy ช่วยได้</li></ul></div>
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent);">Inbound Traffic Control</div><ul><li>ใช้ AS-PATH prepend กับ link backup</li><li>ประกาศ more-specific อย่างระวัง</li><li>คุย policy กับ upstream ISP</li></ul></div>
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent4);">EVPN Control Plane</div><ul><li>BGP แจก MAC/IP route</li><li>ใช้ extended community</li><li>ตรวจ Route Type 2/3/5</li></ul></div>
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent5);">DDoS Blackhole</div><ul><li>ใช้ RTBH community เช่น 65535:666</li><li>ประกาศ /32 หรือ prefix ที่ถูกโจมตี</li><li>ต้องมี runbook อนุมัติชัดเจน</li></ul></div>
       </div>
-      <div>
-        <div class="info-box">
-          <div class="info-box-title" style="color:var(--accent4);">🌐 BGP Communities</div>
-          <ul>
-            <li><code style="color:var(--accent);">NO_EXPORT (65535:65281)</code> — ไม่ส่งออกไป eBGP</li>
-            <li><code style="color:var(--accent2);">NO_ADVERTISE</code> — ไม่ Advertise ไปทุก Peer</li>
-            <li><code style="color:var(--accent5);">65001:100</code> — Custom Community (AS:Value)</li>
-          </ul>
-        </div>
-        <div class="info-box" style="margin-top:12px;">
-          <div class="info-box-title" style="color:var(--accent);">🔄 BGP Route Reflector</div>
-          <ul>
-            <li>แก้ปัญหา iBGP Full-mesh (N×(N-1)/2 Sessions)</li>
-            <li>RR รับ Route จาก Client แล้ว Reflect ไปทุก Client</li>
-            <li>ลด BGP Sessions จาก O(N²) เป็น O(N)</li>
-            <li>ใช้ Cluster-ID ป้องกัน Loop</li>
-          </ul>
-        </div>
-        <div class="info-box" style="margin-top:12px;">
-          <div class="info-box-title" style="color:var(--accent3);">📡 BGP Use Cases</div>
-          <ul>
-            <li>ISP Peering — เชื่อม ISP กับ Internet Exchange</li>
-            <li>Multi-homing — ต่อ Internet หลาย ISP</li>
-            <li>Data Center — EVPN Control Plane</li>
-            <li>SD-WAN Underlay — Route แลกกับ Branch</li>
-          </ul>
-        </div>
-      </div>
+    </div>
+  </div>
+
+  <div class="vlan-diagram">
+    <div class="osi-title">🧪 Cisco IOS Policy Example</div>
+    <div class="code-block" data-lang="cisco ios">
+<span class="cm">! Prefix-list สำหรับ route ที่ยอมรับ</span>
+Router(config)<span class="op">#</span> ip prefix-list CUSTOMER-IN seq <span class="num">10</span> permit <span class="num">10.10.0.0/16</span> le <span class="num">24</span>
+Router(config)<span class="op">#</span> ip prefix-list CUSTOMER-IN seq <span class="num">99</span> deny <span class="num">0.0.0.0/0</span> le <span class="num">32</span>
+
+<span class="cm">! ตั้ง Local Preference ให้ ISP-A เป็นเส้นทางหลัก</span>
+Router(config)<span class="op">#</span> route-map ISP-A-IN permit <span class="num">10</span>
+Router(config-route-map)<span class="op">#</span> match ip address prefix-list CUSTOMER-IN
+Router(config-route-map)<span class="op">#</span> set local-preference <span class="num">200</span>
+Router(config-route-map)<span class="op">#</span> set community <span class="num">65001:100</span> additive
+
+<span class="cm">! Apply policy กับ neighbor</span>
+Router(config)<span class="op">#</span> router bgp <span class="num">65001</span>
+Router(config-router)<span class="op">#</span> neighbor <span class="num">203.0.113.1</span> remote-as <span class="num">65010</span>
+Router(config-router)<span class="op">#</span> neighbor <span class="num">203.0.113.1</span> route-map ISP-A-IN in
+Router(config-router)<span class="op">#</span> neighbor <span class="num">203.0.113.1</span> send-community both
+
+<span class="cm">! Verify</span>
+Router<span class="op">#</span> show ip bgp summary
+Router<span class="op">#</span> show ip bgp <span class="num">10.10.0.0</span>
+Router<span class="op">#</span> show route-map ISP-A-IN
     </div>
   </div>
 </div>
@@ -2340,7 +2346,7 @@ docker network ls
 <!-- ════════════════════════ -->
 <div id="ext-quiz" class="section" style="max-width:1400px;margin:0 auto;padding:0 20px 80px;">
   <div class="section-title">🎯 Interactive Quiz</div>
-  <p class="section-desc">ทดสอบความเข้าใจ Network Engineering ทั้ง 7 หมวด — ${quizData.length} ข้อจากเนื้อหาทั้งหมด</p>
+  <p class="section-desc">ทดสอบความเข้าใจ Network Engineering ทั้ง 7 หมวด — ครอบคลุมคำถามจากเนื้อหาทั้งหมด</p>
 
   <div class="quiz-wrap">
     <div id="quizStart" style="text-align:center;padding:30px;">
@@ -2372,126 +2378,63 @@ docker network ls
 <!-- ════════════════════════ -->
 <div id="ext-career" class="section" style="max-width:1400px;margin:0 auto;padding:0 20px 80px;">
   <div class="section-title">💼 Career Path & Salary</div>
-  <p class="section-desc">เส้นทางสายอาชีพและเงินเดือนในตลาด Network Engineer ปี 2024 (ประมาณการตลาดประเทศไทย)</p>
+  <p class="section-desc">เส้นทางสายอาชีพ Network Engineer แบบอ่านง่าย: เริ่มจาก NOC/Support, โตสู่ Engineer, Senior, Architect และสาย Cloud/Automation/Security</p>
 
   <div class="vlan-diagram">
     <div class="osi-title">🗺️ Network Engineer Career Map</div>
+    <div class="highlight-box">ใช้แผนนี้เป็น Roadmap ส่วนตัว: ทุกระดับควรมี Lab, เอกสารงาน, GitHub/Portfolio และประสบการณ์ Troubleshooting จริงประกอบ ไม่ใช่แค่สอบ certificate</div>
 
-    <!-- Career timeline -->
-    <div style="position:relative;padding:20px 0 0;">
-      <div style="position:absolute;left:140px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent4));opacity:0.3;"></div>
-
-      {[
-        {yr:'0-1 ปี', title:'Network Support / Junior NOC', skills:['CCNA', 'Basic Routing', 'Troubleshooting'], sal:'25,000 – 35,000', color:'var(--text-muted)'},
-        {yr:'1-3 ปี', title:'Network Engineer', skills:['OSPF/BGP', 'Firewall', 'VLAN/STP', 'Cisco/Fortinet'], sal:'40,000 – 65,000', color:'var(--accent2)'},
-        {yr:'3-5 ปี', title:'Senior Network Engineer', skills:['CCNP/NSE4+', 'SD-WAN', 'Automation', 'Cloud Basics'], sal:'65,000 – 100,000', color:'var(--accent)'},
-        {yr:'5-8 ปี', title:'Network Architect / DevNet', skills:['CCIE/Expert', 'Python/Ansible', 'Cloud', 'VXLAN/BGP Adv'], sal:'100,000 – 150,000', color:'var(--accent5)'},
-        {yr:'8+ ปี', title:'Principal / Cloud Architect / CTO', skills:['Multi-cloud', 'Zero Trust', 'Strategy', 'Leadership'], sal:'150,000+', color:'var(--accent3)'},
-      ].map(({yr,title,skills,sal,color})=>`
-        <div style="display:flex;gap:24px;margin-bottom:28px;align-items:flex-start;">
-          <div style="width:120px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);padding-top:14px;flex-shrink:0;">${yr}</div>
-          <div style="width:16px;height:16px;border-radius:50%;background:${color};flex-shrink:0;margin-top:12px;box-shadow:0 0 10px ${color};"></div>
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:16px 20px;flex:1;">
-            <div style="font-family:'Space Mono',monospace;font-size:14px;color:${color};margin-bottom:8px;">${title}</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;">
-              ${skills.map(s=>`<span class="chip" style="border-color:${color};color:${color};">${s}</span>`).join('')}
-            </div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent2);">💰 ${sal} บาท/เดือน</div>
-          </div>
-        </div>`).join('')}
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:20px;">
+      <div class="info-box" style="border-color:var(--text-muted);">
+        <div class="info-box-title" style="color:var(--text-dim);">0-1 ปี — Junior NOC / Support</div>
+        <ul><li>OSI, TCP/IP, Subnetting</li><li>VLAN, STP, Basic Routing</li><li>Ping, traceroute, Wireshark</li><li>เป้าหมาย: CCNA + Troubleshooting habit</li></ul>
+        <div class="chip" style="margin-top:10px;">25k-35k THB/mo</div>
+      </div>
+      <div class="info-box" style="border-color:var(--accent2);">
+        <div class="info-box-title" style="color:var(--accent2);">1-3 ปี — Network Engineer</div>
+        <ul><li>OSPF/BGP, NAT, ACL, VPN</li><li>Firewall policy, Wireless basics</li><li>Change management + rollback</li><li>เป้าหมาย: CCNP ENCOR / Fortinet NSE4</li></ul>
+        <div class="chip" style="border-color:var(--accent2);color:var(--accent2);margin-top:10px;">40k-65k THB/mo</div>
+      </div>
+      <div class="info-box" style="border-color:var(--accent);">
+        <div class="info-box-title" style="color:var(--accent);">3-5 ปี — Senior Network Engineer</div>
+        <ul><li>BGP policy, SD-WAN, HA design</li><li>Automation ด้วย Python/Ansible</li><li>Monitoring, capacity planning</li><li>เป้าหมาย: CCNP/PCNSE/NSE7 + portfolio</li></ul>
+        <div class="chip" style="border-color:var(--accent);color:var(--accent);margin-top:10px;">65k-100k THB/mo</div>
+      </div>
+      <div class="info-box" style="border-color:var(--accent5);">
+        <div class="info-box-title" style="color:var(--accent5);">5-8 ปี — Architect / DevNet / Cloud Network</div>
+        <ul><li>VXLAN/EVPN, MPLS, Multi-cloud</li><li>Design review, standards, governance</li><li>NetDevOps pipeline + source of truth</li><li>เป้าหมาย: Expert track หรือ Cloud Networking Specialty</li></ul>
+        <div class="chip" style="border-color:var(--accent5);color:var(--accent5);margin-top:10px;">100k-150k THB/mo</div>
+      </div>
+      <div class="info-box" style="border-color:var(--accent3);">
+        <div class="info-box-title" style="color:var(--accent3);">8+ ปี — Principal / Lead / CTO Track</div>
+        <ul><li>Architecture strategy, risk, budget</li><li>Zero Trust, SASE, DR, compliance</li><li>Mentoring + stakeholder communication</li><li>เป้าหมาย: business impact + leadership</li></ul>
+        <div class="chip" style="border-color:var(--accent3);color:var(--accent3);margin-top:10px;">150k+ THB/mo</div>
+      </div>
     </div>
   </div>
 
-  <!-- Certifications Roadmap -->
-  <div class="vlan-diagram" style="margin-top:20px;">
-    <div class="osi-title">📜 Certification Roadmap</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:16px;">
-
-      <div style="background:var(--surface2);border:1px solid rgba(0,212,255,0.3);border-radius:4px;padding:20px;">
-        <div style="font-family:'Space Mono',monospace;font-size:12px;color:var(--accent);margin-bottom:12px;">🔵 CISCO</div>
-        <div style="display:flex;flex-direction:column;gap:6px;">
-          <div class="flow-box" style="color:var(--text-muted);border-color:var(--border);font-size:11px;padding:8px;">CCNA (200-301)</div>
-          <div class="flow-arrow" style="font-size:14px;">▼</div>
-          <div class="flow-box" style="color:var(--accent);border-color:rgba(0,212,255,0.3);font-size:11px;padding:8px;">CCNP Enterprise</div>
-          <div class="flow-arrow" style="font-size:14px;">▼</div>
-          <div class="flow-box" style="color:var(--accent5);border-color:rgba(251,191,36,0.3);font-size:11px;padding:8px;">CCIE Enterprise</div>
-        </div>
+  <div class="two-col">
+    <div class="vlan-diagram">
+      <div class="osi-title">📜 Certification Roadmap</div>
+      <div class="info-grid">
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent);">Cisco</div><ul><li>CCNA → CCNP Enterprise → CCIE</li><li>DevNet Associate/Professional สำหรับสาย Automation</li><li>เลือก ENARSI ถ้าจะเน้น Routing</li></ul></div>
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent3);">Security Vendors</div><ul><li>Fortinet FCP/FCSS, Palo Alto PCNSA/PCNSE</li><li>ควรรู้ firewall policy, NAT, VPN, IPS</li><li>ต่อยอด Zero Trust/SASE ได้</li></ul></div>
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent5);">Cloud</div><ul><li>AWS SAA → Advanced Networking Specialty</li><li>Azure AZ-700</li><li>GCP Professional Cloud Network Engineer</li></ul></div>
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent2);">Automation</div><ul><li>Python, Git, Linux, REST API</li><li>Ansible/Nornir + Jinja2</li><li>NetBox, CI/CD, testing with pyATS/Batfish</li></ul></div>
       </div>
-
-      <div style="background:var(--surface2);border:1px solid rgba(255,107,53,0.3);border-radius:4px;padding:20px;">
-        <div style="font-family:'Space Mono',monospace;font-size:12px;color:var(--accent3);margin-bottom:12px;">🟠 FORTINET</div>
-        <div style="display:flex;flex-direction:column;gap:6px;">
-          <div class="flow-box" style="color:var(--text-muted);border-color:var(--border);font-size:11px;padding:8px;">NSE 1-3 (Free)</div>
-          <div class="flow-arrow" style="font-size:14px;">▼</div>
-          <div class="flow-box" style="color:var(--accent3);border-color:rgba(255,107,53,0.3);font-size:11px;padding:8px;">NSE 4 — FortiGate</div>
-          <div class="flow-arrow" style="font-size:14px;">▼</div>
-          <div class="flow-box" style="color:var(--accent5);border-color:rgba(251,191,36,0.3);font-size:11px;padding:8px;">NSE 7-8 Expert</div>
-        </div>
-      </div>
-
-      <div style="background:var(--surface2);border:1px solid rgba(251,191,36,0.3);border-radius:4px;padding:20px;">
-        <div style="font-family:'Space Mono',monospace;font-size:12px;color:var(--accent5);margin-bottom:12px;">☁️ AWS</div>
-        <div style="display:flex;flex-direction:column;gap:6px;">
-          <div class="flow-box" style="color:var(--text-muted);border-color:var(--border);font-size:11px;padding:8px;">AWS Cloud Practitioner</div>
-          <div class="flow-arrow" style="font-size:14px;">▼</div>
-          <div class="flow-box" style="color:var(--accent5);border-color:rgba(251,191,36,0.3);font-size:11px;padding:8px;">Solutions Architect Assoc</div>
-          <div class="flow-arrow" style="font-size:14px;">▼</div>
-          <div class="flow-box" style="color:var(--accent3);border-color:rgba(255,107,53,0.3);font-size:11px;padding:8px;">Advanced Networking Spec</div>
-        </div>
-      </div>
-
-      <div style="background:var(--surface2);border:1px solid rgba(168,85,247,0.3);border-radius:4px;padding:20px;">
-        <div style="font-family:'Space Mono',monospace;font-size:12px;color:var(--accent4);margin-bottom:12px;">🤖 DEVNET</div>
-        <div style="display:flex;flex-direction:column;gap:6px;">
-          <div class="flow-box" style="color:var(--text-muted);border-color:var(--border);font-size:11px;padding:8px;">Python Basics + Git</div>
-          <div class="flow-arrow" style="font-size:14px;">▼</div>
-          <div class="flow-box" style="color:var(--accent4);border-color:rgba(168,85,247,0.3);font-size:11px;padding:8px;">Cisco DevNet Associate</div>
-          <div class="flow-arrow" style="font-size:14px;">▼</div>
-          <div class="flow-box" style="color:var(--accent5);border-color:rgba(251,191,36,0.3);font-size:11px;padding:8px;">DevNet Professional</div>
-        </div>
-      </div>
-
     </div>
-  </div>
 
-  <!-- Study tips -->
-  <div class="vlan-diagram" style="margin-top:20px;">
-    <div class="osi-title">💡 Tips เรียนให้ได้งานเร็ว</div>
-    <div class="info-grid">
-      <div class="info-box">
-        <div class="info-box-title" style="color:var(--accent2);">🔬 Lab Practice</div>
-        <ul>
-          <li>GNS3 / EVE-NG — Emulate Real Devices ฟรี</li>
-          <li>Cisco Packet Tracer — เรียนรู้ Cisco ฟรี</li>
-          <li>AWS Free Tier — ลอง Cloud จริง ฟรี 1 ปี</li>
-          <li>ทำ Home Lab ด้วย MikroTik/Old Cisco เก่า</li>
-          <li>รัน Network Tools ด้วย Docker</li>
-        </ul>
-      </div>
-      <div class="info-box">
-        <div class="info-box-title" style="color:var(--accent);">📚 Learning Resources</div>
-        <ul>
-          <li>CBT Nuggets / INE — Video Learning</li>
-          <li>Packet Pushers Podcast</li>
-          <li>networklessons.com</li>
-          <li>GitHub — ดู Network Automation Projects จริง</li>
-          <li>Cisco DevNet Learning Labs (ฟรี)</li>
-        </ul>
-      </div>
-      <div class="info-box">
-        <div class="info-box-title" style="color:var(--accent5);">🚀 Portfolio Projects</div>
-        <ul>
-          <li>สร้าง Network Automation Script บน GitHub</li>
-          <li>ทำ Network Monitoring Dashboard ด้วย Grafana</li>
-          <li>Blog เขียนอธิบาย Config ที่ทำ</li>
-          <li>Contribute Open-source Network Tools</li>
-          <li>สร้าง Lab topology แล้วเขียน Writeup</li>
-        </ul>
+    <div class="vlan-diagram">
+      <div class="osi-title">🚀 Portfolio ที่ช่วยให้ได้งานเร็ว</div>
+      <div class="info-grid">
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent2);">Lab Evidence</div><ul><li>GNS3/EVE-NG topology + diagram</li><li>Before/after config และผล test</li><li>เขียน README อธิบาย design decision</li></ul></div>
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent);">Automation Project</div><ul><li>Backup config หลาย vendor</li><li>Generate VLAN config จาก CSV/YAML</li><li>Validate config ด้วย lint/test</li></ul></div>
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent5);">Monitoring Dashboard</div><ul><li>Grafana/Prometheus/Zabbix dashboard</li><li>Alert rule + incident runbook</li><li>Capacity trend report</li></ul></div>
+        <div class="info-box"><div class="info-box-title" style="color:var(--accent4);">Documentation</div><ul><li>Diagram, IPAM, inventory, change log</li><li>Runbook + rollback plan</li><li>เก็บใน Git เพื่อโชว์ process</li></ul></div>
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- ═══════════════════════════════════════════════════════════ -->
 <!-- PART 3 EXTENSION -->
@@ -4130,7 +4073,6 @@ show ip policy
 <div id="ext-docs" class="section" style="max-width:1400px;margin:0 auto;padding:0 20px 40px;">
   <div class="section-title">📝 Network Documentation Best Practices</div>
   <p class="section-desc">เอกสารที่ดีช่วยให้ทีมทำงานได้ต่อไปแม้ไม่มีคนที่รู้ดีที่สุด — สิ่งที่ Network Team ต้องมี</p>
-  </div>
   <div class="vlan-diagram">
     <div class="info-grid">
       <div class="info-box">
@@ -5293,3 +5235,8 @@ results = <span class="fn">run_compliance</span>(<span class="str">'192.168.1.1'
 <script src="assets/js/navigation.js"></script>
 </body>
 </html>
+
+
+
+
+
