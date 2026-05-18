@@ -475,6 +475,7 @@ function showQuizResult() {
 
 // Render Career timeline via JS
 (function() {
+  if (document.querySelector('#ext-career .career-roadmap')) return;
   const container = document.querySelector('#ext-career .vlan-diagram > div:last-child');
   if (!container) return;
   const careers = [
@@ -1454,15 +1455,17 @@ const TIMELINE=[
 function buildTimeline(){
   const c=document.getElementById('timelineContent');
   if(!c)return;
-  c.innerHTML=`<div style="position:relative;padding-left:60px;">
+  c.innerHTML=`<div class="timeline-wrap">
     ${TIMELINE.map((t,i)=>`
-      <div class="timeline-item" style="margin-bottom:18px;">
-        ${i<TIMELINE.length-1?`<div class="timeline-line" style="left:29px;background:${t.color};opacity:.3;"></div>`:''}
-        <div style="position:absolute;left:0;top:2px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);">${t.yr}</div>
-        <div class="timeline-dot" style="background:${t.color};box-shadow:0 0 8px ${t.color};position:absolute;left:24px;top:3px;"></div>
-        <div style="padding-left:16px;">
-          <div style="font-family:'Space Mono',monospace;font-size:13px;color:${t.color};margin-bottom:2px;">${t.name}</div>
-          <div style="font-size:12px;color:var(--text-dim);">${t.desc}</div>
+      <div class="timeline-card" style="--tl-color:${t.color};">
+        <div class="timeline-year-badge">${t.yr}</div>
+        <div class="timeline-rail" aria-hidden="true">
+          <span class="timeline-dot-new"></span>
+          ${i<TIMELINE.length-1?'<span class="timeline-line-new"></span>':''}
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-title-new">${t.name}</div>
+          <div class="timeline-desc-new">${t.desc}</div>
         </div>
       </div>`).join('')}
   </div>`;

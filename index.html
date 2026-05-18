@@ -29,6 +29,7 @@
 
 <!-- Nav -->
 <div class="nav-container">
+  <button class="nav-scroll-btn" type="button" onclick="scrollTopicBar(-1)" aria-label="เลื่อนหัวข้อไปทางซ้าย">‹</button>
   <div class="nav-actions"><button class="nav-menu-btn" type="button" onclick="toggleTopicExplorer()">☰ All Topics</button><button class="nav-menu-btn" type="button" onclick="openSearch()">⌕ Search</button></div><div class="nav-tabs">
     <button class="nav-tab active" onclick="showSection('fundamentals')">1. Fundamentals</button>
     <button class="nav-tab" onclick="showSection('automation')">2. Automation</button>
@@ -38,6 +39,7 @@
     <button class="nav-tab" onclick="showSection('sdwan')">6. SD-WAN/DC</button>
     <button class="nav-tab" onclick="showSection('monitoring')">7. Monitoring</button>
   </div>
+  <button class="nav-scroll-btn" type="button" onclick="scrollTopicBar(1)" aria-label="เลื่อนหัวข้อไปทางขวา">›</button>
 </div>
 
 <!-- Main -->
@@ -1101,6 +1103,33 @@ devices = requests.get(
     <br><br><button class="btn" onclick="gotoTab('ext-docs')" style="border-color:var(--accent5);color:var(--accent5);">เปิด Network Documentation Best Practices</button>
   </div>
 
+  <div class="learning-blueprint">
+    <div class="osi-title">Linux Learning Blueprint — Server, Cloud, Network Appliance</div>
+    <div class="blueprint-intro">
+      <div class="blueprint-panel">
+        <div class="blueprint-kicker">Overview</div>
+        <p>Linux คือระบบปฏิบัติการ Open Source ที่ใช้กับ Server, Cloud, Data Center, Firewall, Network Appliance, Kubernetes และ Supercomputer จำนวนมากทั่วโลก จึงเป็นพื้นฐานสำคัญของ Network Engineer, Cloud Engineer และ DevOps</p>
+        <div class="lab-strip"><span class="lab-pill">Server</span><span class="lab-pill">Cloud VM</span><span class="lab-pill">Firewall</span><span class="lab-pill">Kubernetes</span><span class="lab-pill">Automation</span></div>
+      </div>
+      <div class="blueprint-panel blueprint-flow">
+        <div class="blueprint-pulse"></div>
+        <div class="blueprint-node-row"><div class="blueprint-node">User</div><div class="blueprint-node">Shell</div><div class="blueprint-node">Kernel</div><div class="blueprint-node">NIC/Disk</div></div>
+      </div>
+    </div>
+    <div class="learning-grid">
+      <details class="learning-card" open><summary>1. Linux Fundamentals</summary><div class="learning-card-body">Linux, Kernel, Distribution, Ubuntu, Debian, CentOS, Rocky, Kali, Linux Architecture และความต่างจาก Windows <br><strong>Animation:</strong> user command ไหลผ่าน shell ไป kernel แล้วออก hardware</div></details>
+      <details class="learning-card"><summary>2. File System</summary><div class="learning-card-body">โฟลเดอร์สำคัญ: <code>/etc</code>, <code>/var</code>, <code>/home</code>, <code>/bin</code>, <code>/usr</code>, <code>/tmp</code>, mount point, partition<br><code>ls</code> <code>cd</code> <code>pwd</code> <code>mkdir</code> <code>rm</code> <code>cp</code> <code>mv</code></div></details>
+      <details class="learning-card"><summary>3. User & Permission</summary><div class="learning-card-body">User, Group, root, sudo, chmod, chown, permission 777/755/644<br><code>chmod 755 file.sh</code> <code>chown admin:admin file.txt</code></div></details>
+      <details class="learning-card"><summary>4. Process Management</summary><div class="learning-card-body">Process, PID, foreground/background, kill process<br><code>ps aux</code> <code>top</code> <code>htop</code> <code>kill</code> <code>kill -9</code></div></details>
+      <details class="learning-card"><summary>5. Networking in Linux</summary><div class="learning-card-body">IP address, interface, routing, DNS, SSH<br><code>ip addr</code> <code>ping</code> <code>traceroute</code> <code>netstat</code> <code>ss</code> <code>tcpdump</code> <code>curl</code></div></details>
+      <details class="learning-card"><summary>6. Server Services</summary><div class="learning-card-body">SSH Server, Apache/Nginx, DNS, DHCP, FTP, Database และ service lifecycle ด้วย <code>systemctl</code></div></details>
+      <details class="learning-card"><summary>7. Shell Scripting</summary><div class="learning-card-body">Bash script, variables, loop, if/else, automation<br><code>#!/bin/bash</code> <code>echo "Hello Linux"</code></div></details>
+      <details class="learning-card"><summary>8. Linux Security</summary><div class="learning-card-body">Firewall, SELinux, SSH hardening, Fail2Ban, log monitoring และการจำกัด management access</div></details>
+      <details class="learning-card"><summary>9. Package Management</summary><div class="learning-card-body">Ubuntu/Debian: <code>apt install nginx</code><br>RHEL/Rocky: <code>yum install nginx</code> หรือ <code>dnf install nginx</code></div></details>
+      <details class="learning-card"><summary>10. DevOps & Cloud</summary><div class="learning-card-body">Docker, Kubernetes, Ansible, Terraform, Git และ Linux VM บน Cloud<br><strong>Labs:</strong> Install Ubuntu VM, static IP, create user, setup SSH, build web server, write bash script, analyze logs</div></details>
+    </div>
+  </div>
+
   <div class="vlan-diagram">
     <div class="osi-title">💻 Essential Linux Commands</div>
 
@@ -1276,6 +1305,46 @@ ssh -L 8080:internal-server:80 jump-server
   <div class="highlight-box green" style="margin-bottom:20px;">
     <strong>Cloud Network Checklist:</strong> แยก Public/Private Subnet, Route Table, NAT Gateway, Security Group/NACL, VPN/Direct Connect/ExpressRoute, Load Balancer, DNS, Logging และ Cost/Egress ให้ชัดตั้งแต่ design
     <br><br><button class="btn" onclick="gotoTab('ext-docs')" style="border-color:var(--accent5);color:var(--accent5);">เปิด Network Documentation Best Practices</button>
+  </div>
+
+  <div class="learning-blueprint">
+    <div class="osi-title">Cloud Learning Blueprint — Build, Secure, Observe</div>
+    <div class="blueprint-intro">
+      <div class="blueprint-panel">
+        <div class="blueprint-kicker">Overview</div>
+        <p>Cloud Computing คือการใช้ server, storage, database, networking และ security ผ่าน Internet แทนการซื้อ hardware ภายในองค์กร จุดสำคัญคือ scalability, elasticity, high availability และจ่ายตามการใช้งานจริง</p>
+        <div class="lab-strip"><span class="lab-pill">IaaS</span><span class="lab-pill">PaaS</span><span class="lab-pill">SaaS</span><span class="lab-pill">Hybrid</span><span class="lab-pill">Multi-cloud</span></div>
+      </div>
+      <div class="blueprint-panel blueprint-flow">
+        <div class="blueprint-pulse"></div>
+        <div class="blueprint-node-row"><div class="blueprint-node">User</div><div class="blueprint-node">LB</div><div class="blueprint-node">Private VM</div><div class="blueprint-node">Database</div></div>
+      </div>
+    </div>
+    <div class="learning-grid">
+      <details class="learning-card" open><summary>1. Cloud Fundamentals</summary><div class="learning-card-body">Cloud, on-premise vs cloud, advantages, scalability, elasticity, high availability และ shared responsibility model</div></details>
+      <details class="learning-card"><summary>2. Service Models</summary><div class="learning-card-body">IaaS: AWS EC2, Azure VM<br>PaaS: Azure App Service, Google App Engine<br>SaaS: Gmail, Microsoft 365</div></details>
+      <details class="learning-card"><summary>3. Deployment Models</summary><div class="learning-card-body">Public Cloud, Private Cloud, Hybrid Cloud, Multi-Cloud พร้อมแนวคิด landing zone และ network segmentation</div></details>
+      <details class="learning-card"><summary>4. AWS Fundamentals</summary><div class="learning-card-body">EC2, S3, VPC, IAM, RDS, CloudWatch, Lambda และ VPC Flow Logs</div></details>
+      <details class="learning-card"><summary>5. Azure Fundamentals</summary><div class="learning-card-body">Azure VM, Virtual Network, Azure Storage, Azure AD, Azure Monitor และ ExpressRoute</div></details>
+      <details class="learning-card"><summary>6. Google Cloud</summary><div class="learning-card-body">Compute Engine, VPC, Cloud Storage, BigQuery, Kubernetes Engine และ Cloud Operations</div></details>
+      <details class="learning-card"><summary>7. Cloud Networking</summary><div class="learning-card-body">VPC, subnet, route table, NAT gateway, security group, load balancer, VPN, Direct Connect/ExpressRoute/Interconnect</div></details>
+      <details class="learning-card"><summary>8. Cloud Security</summary><div class="learning-card-body">IAM, MFA, encryption, security policy, Zero Trust, cloud compliance, CSPM และ secrets management</div></details>
+      <details class="learning-card"><summary>9. Containers & Kubernetes</summary><div class="learning-card-body">Docker, Kubernetes, Pod, Service, Deployment, Ingress และ network policy</div></details>
+      <details class="learning-card"><summary>10. IaC, Monitoring & Labs</summary><div class="learning-card-body">Terraform, CloudFormation, Ansible, CloudWatch, Azure Monitor, GCP Operations, ELK<br><strong>Labs:</strong> deploy VM, create VPC, security group, web app, load balancer, Kubernetes cluster</div></details>
+    </div>
+    <div class="code-block" data-lang="terraform">
+resource "aws_vpc" "lab" {
+  cidr_block           = "10.10.0.0/16"
+  enable_dns_hostnames = true
+  tags = { Name = "network-learn-vpc" }
+}
+
+resource "aws_subnet" "private_app" {
+  vpc_id     = aws_vpc.lab.id
+  cidr_block = "10.10.10.0/24"
+  tags = { Name = "private-app-a" }
+}
+    </div>
   </div>
 
   <div class="cloud-arch">
@@ -1469,6 +1538,48 @@ ssh -L 8080:internal-server:80 jump-server
     <br><br><button class="btn" onclick="gotoTab('ext-docs')" style="border-color:var(--accent5);color:var(--accent5);">เปิด Network Documentation Best Practices</button>
   </div>
 
+  <div class="learning-blueprint">
+    <div class="osi-title">Cybersecurity Learning Blueprint — Detect, Defend, Respond</div>
+    <div class="blueprint-intro">
+      <div class="blueprint-panel">
+        <div class="blueprint-kicker">Overview</div>
+        <p>Cybersecurity คือการป้องกัน network, system, data, application และ identity จากภัยคุกคามไซเบอร์ เป้าหมายคือทำให้ระบบยังคง confidentiality, integrity และ availability</p>
+        <div class="lab-strip"><span class="lab-pill">CIA</span><span class="lab-pill">Firewall</span><span class="lab-pill">SOC</span><span class="lab-pill">SIEM</span><span class="lab-pill">IR</span></div>
+      </div>
+      <div class="blueprint-panel blueprint-flow">
+        <div class="blueprint-pulse"></div>
+        <div class="blueprint-node-row"><div class="blueprint-node">Threat</div><div class="blueprint-node">Log</div><div class="blueprint-node">SIEM</div><div class="blueprint-node">Response</div></div>
+      </div>
+    </div>
+    <div class="learning-grid">
+      <details class="learning-card" open><summary>1. Security Fundamentals</summary><div class="learning-card-body">CIA Triad, threat, vulnerability, risk, attack surface และ security control types</div></details>
+      <details class="learning-card"><summary>2. Network Security</summary><div class="learning-card-body">Firewall, ACL, IDS/IPS, NAC, VPN, segmentation และ secure management plane</div></details>
+      <details class="learning-card"><summary>3. SOC Workflow</summary><div class="learning-card-body">Alert monitoring, incident response, threat hunting, escalation process และ evidence handling</div></details>
+      <details class="learning-card"><summary>4. SIEM</summary><div class="learning-card-body">Splunk, QRadar, ELK, Microsoft Sentinel<br>Concept: log collection, correlation, detection rule, dashboard</div></details>
+      <details class="learning-card"><summary>5. Endpoint Security</summary><div class="learning-card-body">Antivirus, EDR/XDR, malware analysis, device control และ host isolation</div></details>
+      <details class="learning-card"><summary>6. IAM</summary><div class="learning-card-body">MFA, RBAC, PAM, Zero Trust และ least privilege access</div></details>
+      <details class="learning-card"><summary>7. Web Security</summary><div class="learning-card-body">SQL Injection, XSS, CSRF, OWASP Top 10 และ WAF policy</div></details>
+      <details class="learning-card"><summary>8. Cloud Security</summary><div class="learning-card-body">Cloud IAM, CSPM, container security, secrets management และ compliance guardrails</div></details>
+      <details class="learning-card"><summary>9. Security Monitoring</summary><div class="learning-card-body">Log analysis, threat detection, IOC, MITRE ATT&amp;CK mapping และ dashboard triage</div></details>
+      <details class="learning-card"><summary>10. Incident Response Labs</summary><div class="learning-card-body">Detection, containment, eradication, recovery, lessons learned<br><strong>Labs:</strong> firewall rules, SIEM dashboard, analyze logs, detect brute force, malware sandbox, IR simulation</div></details>
+    </div>
+    <div class="code-block" data-lang="sigma">
+title: SSH Brute Force Detection
+logsource:
+  product: linux
+  service: sshd
+detection:
+  selection:
+    message|contains: "Failed password"
+  timeframe: 5m
+  condition: selection
+fields:
+  - source.ip
+  - user.name
+level: medium
+    </div>
+  </div>
+
   <div class="security-diagram">
     <div class="osi-title">🛡️ Defense in Depth — ชั้นการป้องกัน</div>
     <div class="defense-layers">
@@ -1610,6 +1721,45 @@ ssh -L 8080:internal-server:80 jump-server
     <br><br><button class="btn" onclick="gotoTab('ext-docs')" style="border-color:var(--accent5);color:var(--accent5);">เปิด Network Documentation Best Practices</button>
   </div>
 
+  <div class="learning-blueprint">
+    <div class="osi-title">SD-WAN / Data Center Learning Blueprint</div>
+    <div class="blueprint-intro">
+      <div class="blueprint-panel">
+        <div class="blueprint-kicker">Overview</div>
+        <p>SD-WAN คือการบริหาร WAN แบบ software-defined เพื่อ optimize traffic, ลดค่า MPLS, ใช้หลาย Internet link และควบคุมจากศูนย์กลาง ส่วน Data Center เน้น rack, power, cooling, cabling, virtualization, fabric และ automation</p>
+        <div class="lab-strip"><span class="lab-pill">Underlay</span><span class="lab-pill">Overlay</span><span class="lab-pill">SLA</span><span class="lab-pill">Spine-Leaf</span><span class="lab-pill">VXLAN</span></div>
+      </div>
+      <div class="blueprint-panel blueprint-flow">
+        <div class="blueprint-pulse"></div>
+        <div class="blueprint-node-row"><div class="blueprint-node">Branch</div><div class="blueprint-node">Tunnel</div><div class="blueprint-node">Hub/DC</div><div class="blueprint-node">App</div></div>
+      </div>
+    </div>
+    <div class="learning-grid">
+      <details class="learning-card" open><summary>SD-WAN 1. WAN Basics</summary><div class="learning-card-body">MPLS, Internet WAN, LTE/5G WAN, bandwidth, latency, jitter, packet loss และ link diversity</div></details>
+      <details class="learning-card"><summary>SD-WAN 2. Architecture</summary><div class="learning-card-body">Controller, edge device, overlay tunnel, underlay network, ZTP และ centralized policy</div></details>
+      <details class="learning-card"><summary>SD-WAN 3. Routing & Policies</summary><div class="learning-card-body">Application aware routing, SLA policy, traffic steering, QoS และ dynamic failover</div></details>
+      <details class="learning-card"><summary>SD-WAN 4. VPN & Security</summary><div class="learning-card-body">IPSec, segmentation, secure overlay, branch firewall และ secure Internet breakout</div></details>
+      <details class="learning-card"><summary>SD-WAN 5. Vendors</summary><div class="learning-card-body">Cisco SD-WAN, Fortinet, VMware VeloCloud, Palo Alto Prisma, Versa</div></details>
+      <details class="learning-card"><summary>DC 1. Fundamentals</summary><div class="learning-card-body">Rack, power, cooling, cabling, rack unit, patch panel, structured cabling และ capacity planning</div></details>
+      <details class="learning-card"><summary>DC 2. Spine-Leaf</summary><div class="learning-card-body">Spine switch, leaf switch, east-west traffic, ECMP และ predictable latency</div></details>
+      <details class="learning-card"><summary>DC 3. Virtualization</summary><div class="learning-card-body">VMware, Hyper-V, KVM, vSwitch, port group และ VM mobility</div></details>
+      <details class="learning-card"><summary>DC 4. Networking & Storage</summary><div class="learning-card-body">VXLAN, EVPN, overlay network, fabric, SAN, NAS, iSCSI, Fibre Channel</div></details>
+      <details class="learning-card"><summary>DC 5. Automation & Labs</summary><div class="learning-card-body">Ansible, Python, Terraform<br><strong>Labs:</strong> SD-WAN topology, IPSec tunnel, VXLAN lab, spine-leaf simulation, traffic engineering demo</div></details>
+    </div>
+    <div class="code-block" data-lang="cisco ios">
+interface Tunnel100
+ description SD-WAN_OVERLAY_TO_DC
+ ip address 172.16.100.2 255.255.255.252
+ tunnel source GigabitEthernet0/0
+ tunnel destination 203.0.113.10
+ tunnel protection ipsec profile SDWAN-IPSEC
+
+policy-map VOICE-SLA
+ class VOICE
+  priority percent 20
+    </div>
+  </div>
+
   <div class="vlan-diagram">
     <div class="osi-title">🌐 SD-WAN — Software Defined WAN</div>
     <div class="highlight-box">SD-WAN ควบคุม WAN Links หลายเส้น (MPLS, Internet, 4G/5G) ด้วย Software — เลือก Path ที่ดีที่สุดแบบ Real-time ลดต้นทุน MPLS ได้มาก</div>
@@ -1743,6 +1893,45 @@ ssh -L 8080:internal-server:80 jump-server
   </div>
   <div class="highlight-box green" style="margin-bottom:20px;">
     📡 <strong>Monitoring Protocols</strong> (SNMP, NetFlow, Syslog) และ <strong>Tools Stack</strong> (Zabbix, Grafana, Prometheus, PRTG) ดูได้ที่ Tab <strong>"📡 gNMI"</strong> — เนื้อหารวมอยู่ที่เดียวเพื่อความกระชับ
+  </div>
+
+  <div class="learning-blueprint">
+    <div class="osi-title">Monitoring Learning Blueprint — Metrics, Logs, Traces</div>
+    <div class="blueprint-intro">
+      <div class="blueprint-panel">
+        <div class="blueprint-kicker">Overview</div>
+        <p>Monitoring คือการตรวจสอบ network, server, application, security และ cloud แบบ real-time เพื่อรู้ปัญหาก่อนผู้ใช้ กระบวนการที่ดีต้องมี metric, log, trace, alert, dashboard และ runbook</p>
+        <div class="lab-strip"><span class="lab-pill">SNMP</span><span class="lab-pill">NetFlow</span><span class="lab-pill">Syslog</span><span class="lab-pill">Grafana</span><span class="lab-pill">AIOps</span></div>
+      </div>
+      <div class="blueprint-panel blueprint-flow">
+        <div class="blueprint-pulse"></div>
+        <div class="blueprint-node-row"><div class="blueprint-node">Device</div><div class="blueprint-node">Collector</div><div class="blueprint-node">Alert</div><div class="blueprint-node">NOC</div></div>
+      </div>
+    </div>
+    <div class="learning-grid">
+      <details class="learning-card" open><summary>1. Monitoring Fundamentals</summary><div class="learning-card-body">Metrics, logs, traces, alerting, SLI/SLO/SLA และ incident priority</div></details>
+      <details class="learning-card"><summary>2. Network Monitoring</summary><div class="learning-card-body">SNMP, NetFlow, Syslog, ICMP, interface error, BGP/OSPF neighbor และ VPN tunnel state</div></details>
+      <details class="learning-card"><summary>3. Tools</summary><div class="learning-card-body">Zabbix, Grafana, Prometheus, PRTG, SolarWinds, ELK และ SIEM integration</div></details>
+      <details class="learning-card"><summary>4. Server Monitoring</summary><div class="learning-card-body">CPU, RAM, disk, process, service status, filesystem usage และ process count</div></details>
+      <details class="learning-card"><summary>5. Application Monitoring</summary><div class="learning-card-body">API monitoring, response time, error rate, synthetic check และ transaction tracing</div></details>
+      <details class="learning-card"><summary>6. Log Monitoring</summary><div class="learning-card-body">Syslog, Windows Event, SIEM integration, parsing, enrichment และ retention policy</div></details>
+      <details class="learning-card"><summary>7. Dashboard Design</summary><div class="learning-card-body">NOC dashboard, real-time charts, SLA status, heatmap, top talkers และ executive view</div></details>
+      <details class="learning-card"><summary>8. Alerting System</summary><div class="learning-card-body">Email alert, Telegram alert, Slack alert, threshold monitoring, deduplication และ escalation</div></details>
+      <details class="learning-card"><summary>9. Cloud & AIOps</summary><div class="learning-card-body">CloudWatch, Azure Monitor, GCP Operations Suite, anomaly detection, predictive monitoring, root cause analysis</div></details>
+      <details class="learning-card"><summary>10. Teaching Plan, Labs, Certs</summary><div class="learning-card-body">ทุกหัวข้อควรมี theory, diagram, packet flow, CLI example, hands-on lab, troubleshooting, quiz, enterprise example<br><strong>Labs:</strong> Grafana dashboard, SNMP, alert rules, NetFlow, syslog server, real-time project<br><strong>Certs:</strong> Grafana, Prometheus, Splunk</div></details>
+    </div>
+    <div class="code-block" data-lang="prometheus">
+groups:
+  - name: network-alerts
+    rules:
+      - alert: InterfaceErrorsHigh
+        expr: rate(ifInErrors[5m]) > 10
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Interface error rate is high"
+    </div>
   </div>
 
   <div class="monitoring-dash">
@@ -2384,7 +2573,7 @@ docker network ls
     <div class="osi-title">🗺️ Network Engineer Career Map</div>
     <div class="highlight-box">ใช้แผนนี้เป็น Roadmap ส่วนตัว: ทุกระดับควรมี Lab, เอกสารงาน, GitHub/Portfolio และประสบการณ์ Troubleshooting จริงประกอบ ไม่ใช่แค่สอบ certificate</div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:20px;">
+    <div class="career-roadmap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:20px;">
       <div class="info-box" style="border-color:var(--text-muted);">
         <div class="info-box-title" style="color:var(--text-dim);">0-1 ปี — Junior NOC / Support</div>
         <ul><li>OSI, TCP/IP, Subnetting</li><li>VLAN, STP, Basic Routing</li><li>Ping, traceroute, Wireshark</li><li>เป้าหมาย: CCNA + Troubleshooting habit</li></ul>

@@ -119,6 +119,12 @@
 
   window.showSection = function(id) { activateSection(id); };
   window.gotoTab = function(tabId) { activateSection(tabId); };
+  window.scrollTopicBar = function(direction) {
+    const tabs = document.querySelector('.nav-tabs');
+    if (!tabs) return;
+    const amount = Math.max(260, Math.round(tabs.clientWidth * 0.78));
+    tabs.scrollBy({ left: (direction || 1) * amount, behavior: 'smooth' });
+  };
   window.toggleTopicExplorer = function(force) {
     buildTopicExplorer();
     const explorer = document.getElementById('topicExplorer');
