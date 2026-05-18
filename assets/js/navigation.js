@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
   'use strict';
 
   const SECTION_LABELS = {

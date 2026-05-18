@@ -1,4 +1,4 @@
-# Network Engineer Roadmap — Interactive Learning
+﻿# Network Engineer Roadmap — Interactive Learning
 
 Interactive Thai/English learning app for Network Engineering, from fundamentals to automation, cloud, security, SD-WAN, monitoring, and advanced topics.
 
